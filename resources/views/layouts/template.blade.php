@@ -274,10 +274,10 @@
                      </div>
                      <div class="sub-bar d-flex">
                             <div class="m-1 sub-bar-area d-flex justify-content-center align-items-center">
-                                   <img class="sub-bar-img" src="./IMG/e7bf.png" alt="">
+                                   <img class="sub-bar-img" src="{{ asset('./IMG/e7bf.png') }}" alt="">
                             </div>
                             <div class="m-1 sub-bar-area d-flex justify-content-center align-items-center">
-                                   <img class="sub-bar-img" src="./IMG/e77b.png" alt="">
+                                   <img class="sub-bar-img" src="{{ asset('./IMG/e77b.png') }}" alt="">
                             </div>
                      </div>
               </div>
@@ -297,7 +297,7 @@
                    <div class="row d-flex">
                           <!--Grid column-->
                           <div class="col-lg-3 col-md-12 mb-4 mb-md-0 text-left mr-auto">
-                                 <img class="mr-2" src="./IMG/svgexport-19.svg" alt="">
+                                 <img class="mr-2" src="{{ asset('./IMG/svgexport-19.svg') }}" alt="">
                                  <h5 class="text-uppercase d-inline">數位方塊</h5>
                                  <p class="mt-3 font-weight-light">
                                         Air plant banjo lyft occupy retro adaptogen indego
@@ -392,9 +392,9 @@
                    <div class="text-center font-weight-light mr-auto">
                           © 2020 Tailblocks — @knyttneve
                    </div>
-                   <img class="mx-2" src="./IMG/svgexport-14.svg" alt="">
-                   <img class="mx-2" src="./IMG/svgexport-15.svg" alt="">
-                   <img class="mx-2" src="./IMG/svgexport-22.svg" alt="">
+                   <img class="mx-2" src="{{ asset('./IMG/svgexport-14.svg') }}" alt="">
+                   <img class="mx-2" src="{{ asset('./IMG/svgexport-15.svg') }}" alt="">
+                   <img class="mx-2" src="{{ asset('./IMG/svgexport-22.svg') }}" alt="">
             </div>
 
             <!-- Copyright -->

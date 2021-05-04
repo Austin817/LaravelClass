@@ -75,7 +75,7 @@
                   <div class="col-md-4">
                          <div class="card">
                                 <div class="img-bg">
-                                       <img src="IMG/svgexport-9.svg" class="card-img-top" alt="...">
+                                       <img src="{{ asset('IMG/svgexport-9.svg') }}" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                        <h5 class="card-title">Shooting Stars</h5>
@@ -92,7 +92,7 @@
                   <div class="col-md-4">
                          <div class="card">
                                 <div class="img-bg">
-                                       <img src="IMG/svgexport-11.svg" class="card-img-top" alt="...">
+                                       <img src="{{ asset('IMG/svgexport-11.svg') }}" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                        <h5 class="card-title">The Catalyzer</h5>
@@ -109,7 +109,7 @@
                   <div class="col-md-4">
                          <div class="card">
                                 <div class="img-bg">
-                                       <img src="IMG/svgexport-7.svg" class="card-img-top" alt="...">
+                                       <img src="{{ asset('IMG/svgexport-7.svg') }}" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                        <h5 class="card-title">Neptune</h5>
@@ -148,27 +148,27 @@
            <div class="row">
                   <div class="col-6">
                          <div class="row">
-                                <div class="col-6 p-1"><img class="img-fluid" src="IMG/500x300.png" alt="">
+                                <div class="col-6 p-1"><img class="img-fluid" src="{{ asset('IMG/500x300.png') }}" alt="">
                                 </div>
-                                <div class="col-6 p-1"><img class="img-fluid" src="IMG/501x301.png" alt="">
+                                <div class="col-6 p-1"><img class="img-fluid" src="{{ asset('IMG/501x301.png') }}" alt="">
                                 </div>
                          </div>
 
                          <div class="row">
-                                <div class="col-12 p-1"><img class="img-fluid" src="IMG/600x360.png" alt="">
+                                <div class="col-12 p-1"><img class="img-fluid" src="{{ asset('IMG/600x360.png') }}" alt="">
                                 </div>
                          </div>
                   </div>
                   <div class="col-6">
                          <div class="row">
-                                <div class="col-12 p-1"><img class="img-fluid" src="IMG/601x361.png" alt="">
+                                <div class="col-12 p-1"><img class="img-fluid" src="{{ asset('IMG/601x361.png') }}" alt="">
                                 </div>
                          </div>
 
                          <div class="row">
-                                <div class="col-6 p-1"><img class="img-fluid" src="IMG/502x302.png" alt="">
+                                <div class="col-6 p-1"><img class="img-fluid" src="{{ asset('IMG/502x302.png') }}" alt="">
                                 </div>
-                                <div class="col-6 p-1"><img class="img-fluid" src="IMG/503x303.png" alt="">
+                                <div class="col-6 p-1"><img class="img-fluid" src="{{ asset('IMG/503x303.png') }}" alt="">
                                 </div>
                          </div>
                   </div>
@@ -236,7 +236,7 @@
     <div class="cardarea4">
            <div class="card-deck px-3">
                   <div class="card p-3 bacc">
-                         <img class="card-img-top2" src="IMG/720x400.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/720x400.png') }}" alt="Card image cap">
                          <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Fingerstache flexitarian street art 8-bit waistcoat.
@@ -246,7 +246,7 @@
                          </div>
                   </div>
                   <div class="card p-3 bacc">
-                         <img class="card-img-top2" src="IMG/721x401.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/721x401.png') }}" alt="Card image cap">
                          <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Fingerstache flexitarian street art 8-bit waistcoat.
@@ -256,7 +256,7 @@
                          </div>
                   </div>
                   <div class="card p-3 bacc">
-                         <img class="card-img-top2" src="IMG/722x402.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/722x402.png') }}" alt="Card image cap">
                          <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Fingerstache flexitarian street art 8-bit waistcoat.
@@ -266,7 +266,7 @@
                          </div>
                   </div>
                   <div class="card p-3 bacc">
-                         <img class="card-img-top2" src="IMG/723x403.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/723x403.png') }}" alt="Card image cap">
                          <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Fingerstache flexitarian street art 8-bit waistcoat.
@@ -284,7 +284,7 @@
                   <div class="col-md-12">
                          <div class="card d-flex flex-md-row flex-column">
                                 <div class="img-bg flex-shrink-0 img-bgsize">
-                                       <img class="imgsize" src="IMG/svgexport-9.svg" class="card-img-top"
+                                       <img class="imgsize" src="{{ asset('IMG/svgexport-9.svg') }}" class="card-img-top"
                                               alt="...">
                                 </div>
                                 <div class="card-body text-left">
@@ -305,7 +305,7 @@
                   <div class="col-md-12">
                          <div class="card d-flex flex-md-row-reverse flex-column">
                                 <div class="img-bg flex-shrink-0 img-bgsize">
-                                       <img class="imgsize" src="IMG/svgexport-11.svg" class="card-img-top"
+                                       <img class="imgsize" src="{{ asset('IMG/svgexport-11.svg') }}" class="card-img-top"
                                               alt="...">
                                 </div>
                                 <div class="card-body text-left">
@@ -325,7 +325,7 @@
                   <div class="col-md-12">
                          <div class="card d-flex flex-md-row flex-column">
                                 <div class="img-bg flex-shrink-0 img-bgsize">
-                                       <img class="imgsize" src="IMG/svgexport-7.svg" class="card-img-top"
+                                       <img class="imgsize" src="{{ asset('IMG/svgexport-7.svg') }}" class="card-img-top"
                                               alt="...">
                                 </div>
                                 <div class="card-body text-left">
@@ -353,7 +353,7 @@
     <div class="card mb-3 mx-auto mt-200" style="max-width: 800px;">
            <div class="row no-gutters">
                   <div class="col-md-6">
-                         <img src="IMG/400x400.png" alt="...">
+                         <img src="{{ asset('IMG/400x400.png') }}" alt="...">
                   </div>
                   <div class="col-md-6">
                          <div class="card-body text-left p-0 pl-3">
@@ -362,16 +362,16 @@
                                 </p>
                                 <h2 class="card-title">The Catcher in the Rye</h2>
                                 <div class="icon mb-2">
-                                       <img src="IMG/svgexport-12.svg" alt="">
-                                       <img src="IMG/svgexport-12.svg" alt="">
-                                       <img src="IMG/svgexport-12.svg" alt="">
-                                       <img src="IMG/svgexport-12.svg" alt="">
-                                       <img src="IMG/svgexport-13.svg" alt="">
+                                       <img src="{{ asset('IMG/svgexport-12.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-12.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-12.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-12.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-13.svg') }}" alt="">
                                        <span class="ml-2">4 Reviews</span>
                                        <div class="h-100 w-1 bacc d-inline p-1 mx-2"></div>
-                                       <img src="IMG/svgexport-14.svg" alt="">
-                                       <img src="IMG/svgexport-15.svg" alt="">
-                                       <img src="IMG/svgexport-16.svg" alt="">
+                                       <img src="{{ asset('IMG/svgexport-14.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-15.svg') }}" alt="">
+                                       <img src="{{ asset('IMG/svgexport-16.svg') }}" alt="">
                                 </div>
                                 <p class="card-text mb-0">Fam locavore kickstarter distillery. Mixtape
                                        chillwave
@@ -409,7 +409,7 @@
                                        <div class="bacc d-flex align-items-center justify-content-center"
                                               style="width:40px; height: 40px; border-radius: 40px;">
                                               <img style="width:30px; height: 30px;"
-                                                     src="IMG/svgexport-18.svg" alt="">
+                                                     src="{{ asset('IMG/svgexport-18.svg') }}" alt="">
                                        </div>
 
                                 </div>
@@ -425,7 +425,7 @@
     <div class="cardarea8 mt-200">
            <div class="card-deck px-3">
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/420x260.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/420x260.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">The Catalyzer</h5>
@@ -434,7 +434,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/421x261.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/421x261.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">Shooting Stars</h5>
@@ -443,7 +443,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/422x262.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/422x262.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">Neptune</h5>
@@ -452,7 +452,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/423x263.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/423x263.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">The 400 Blows</h5>
@@ -467,7 +467,7 @@
     <div class="cardarea8 mt-5">
            <div class="card-deck px-3">
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/424x264.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/424x264.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">The Catalyzer</h5>
@@ -476,7 +476,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/425x265.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/425x265.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">Shooting Stars</h5>
@@ -485,7 +485,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/427x267.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/427x267.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">Neptune</h5>
@@ -494,7 +494,7 @@
                          </div>
                   </div>
                   <div class="card p-3">
-                         <img class="card-img-top2" src="IMG/428x268.png" alt="Card image cap">
+                         <img class="card-img-top2" src="{{ asset('IMG/428x268.png') }}" alt="Card image cap">
                          <div class="card-body text-left">
                                 <p class="card-text">CATEGORY</p>
                                 <h5 class="card-title">The 400 Blows</h5>
