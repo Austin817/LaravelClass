@@ -17,6 +17,20 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/news','NewsController@index');
+Route::get('/news/create/{title}/{date}/{img}','NewsController@create');
+Route::get('/news/update/{id}','NewsController@update');
+Route::get('/news/delete/{id}','NewsController@delete');
+Route::get('/news/detail/{id}','NewsController@detail');
+
+   
+
+
+
+
+
+
+
 
 Route::get('test',function(){
 

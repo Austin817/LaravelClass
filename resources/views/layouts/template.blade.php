@@ -239,10 +239,10 @@
                      border-radius: 50px;
               }
 
-
-            @yield('css');
        </style>
 
+
+       @yield('css')
 
 
 
@@ -251,9 +251,15 @@
 <body>
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container">
-                     <div class="logo"><img src="{{ asset('./IMG/logo.svg') }}" alt=""></div>
+                     <a href="/">
+                            <div class="logo"><img src="{{ asset('./IMG/logo.svg') }}" alt=""></div>
+                     </a>
                      <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
+                                   <li class="nav-item active">
+                                          <a class="nav-link" href="/news">News
+                                                 <span class="sr-only">(current)</span></a>
+                                   </li>
                                    <li class="nav-item active">
                                           <a class="nav-link" href="#">Blog
                                                  <span class="sr-only">(current)</span></a>
@@ -285,9 +291,20 @@
 
        </nav>
 
+
+
+
+
+
        <main>
            @yield('main')
        </main>
+
+
+
+
+       
+
 
         <!-- Footer -->
         <footer class="bg-light text-center text-lg-start">
@@ -417,7 +434,7 @@
 
 
 
-        @yield('script');
+        @yield('script')
 
 
 </body>

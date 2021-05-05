@@ -1,0 +1,44 @@
+@extends('layouts.template')
+
+@section ('css')
+    <link rel="stylesheet" href="/css/news_list_page.css">
+@endsection
+
+
+@section ('main')
+    <div class="container">
+        <div class="title">
+            <div class="title"><div class="title-icon"><img src="https://www.taiwan.net.tw/att/topTitleImg/21_0001001.svg" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;"></div><h2>最新消息</h2></div>
+        
+        <div class="sort-item"><span>資料總筆數：<b>175</b></span> <span>每頁筆數：<b>10</b></span> <span>總頁數：<b>18</b></span> <span>目前頁次：<b>1</b></span></div>
+        </div>
+
+        <hr>
+
+        <ul>
+            @foreach ($newData as $Data)
+            <li>
+                <div class="ColumnBlock">
+                    <div class="ColumnBlockPic">
+                        <img class="lazyloaded" src="{{$Data->img}}" data-src="https://www.taiwan.net.tw/pic.ashx?qp=/0040115/13_0040115.jpg&amp;sizetype=2" alt="池上美景" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
+                    </div>
+                    <div class="ColumnBlockInfo">
+                        <div class="hashtag">
+                            <span class="color-purple">最新消息</span>
+                        </div>
+                        <h3>
+                            <a href="/news/detial">{{$Data->title}}</a>
+                        </h3>
+                        <span>{{$Data->date}}</span>
+                        <p>{{$Data->content}}</p>
+                    </div>
+                </div>
+            </li>
+            @endforeach   
+        </ul>    
+    </div>
+@endsection
+
+
+
+    
