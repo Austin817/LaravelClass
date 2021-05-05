@@ -27,7 +27,7 @@
                             <span class="color-purple">最新消息</span>
                         </div>
                         <h3>
-                            <a href="/news/detial">{{$Data->title}}</a>
+                            <a href="/news/detail/{{$Data->id}}">{{$Data->title}}</a>
                         </h3>
                         <span>{{$Data->date}}</span>
                         <p>{{$Data->content}}</p>
