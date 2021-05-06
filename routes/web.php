@@ -13,15 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// 顯示首頁
 Route::get('/', function () {
     return view('index');
 });
 
+// 顯示內頁
 Route::get('/news','NewsController@index');
-Route::get('/news/create/{title}/{date}/{content}','NewsController@create');
-Route::get('/news/update/{id}','NewsController@update');
-Route::get('/news/delete/{id}','NewsController@delete');
+
+// 顯示內頁資料
 Route::get('/news/detail/{id}','NewsController@detail');
+
+// 新增頁面資料
+Route::get('/news/create','NewsController@create');
+
+// 新增頁面資料(預設)
+Route::get('/news/createUnset/{title}','NewsController@createUnset');
+
+// 儲存資料
+Route::post('/news/store','NewsController@store');
+
+// 更新資料
+Route::get('/news/update/{id}/{title}','NewsController@update');
+
+// 刪除資料
+Route::get('/news/delete/{id}','NewsController@delete');
+
+
 
    
 
