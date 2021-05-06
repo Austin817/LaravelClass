@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 
 // 顯示首頁
-Route::get('/', function () {
-    return view('index');
-});
+
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::view('/', 'index');  // 縮寫 view 預設本來就是 get
+
 
 // 顯示內頁
 Route::get('/news','NewsController@index');
@@ -35,7 +39,7 @@ Route::get('/news/createUnset/{title}','NewsController@createUnset');
 Route::post('/news/store','NewsController@store');
 
 // 更新資料
-Route::get('/news/update/{id}/{title}','NewsController@update');
+Route::get('/news/update{id}','NewsController@update');
 
 // 刪除資料
 Route::get('/news/delete/{id}','NewsController@delete');
@@ -51,7 +55,7 @@ Route::get('/news/delete/{id}','NewsController@delete');
 
 
 
-Route::get('test',function(){
+Route::get('/test',function(){
 
     // $data = '123';
     // return view('test',['abc' => $data]);
@@ -63,7 +67,7 @@ Route::get('test',function(){
     return view('test',compact('data1','data2','data3'));
 });
 
-Route::get('lesson1',function(){
+Route::get('/lesson1',function(){
 
     // $變數名稱
     // =指派運算子

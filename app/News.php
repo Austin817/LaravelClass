@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    //
     // 強制連結
     protected $table = 'news';
     // 允許改動

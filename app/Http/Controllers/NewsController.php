@@ -55,11 +55,17 @@ class NewsController extends Controller
 
     }
 
-    public function update($id,$title)
+    public function update($id,Request $request)
     {
         News::
             where('id', $id)
-            ->update(['title'=>$title]);
+            ->update([
+                'title'=>$request->title,
+                'date'=>$request->date,
+                'img'=>$request->img,
+                'content'=>$request->content,
+                'view'=>0,
+            ]);
     }
 
     public function delete($id)
@@ -67,6 +73,7 @@ class NewsController extends Controller
         News::
             find($id)
             ->delete();
+        return redirect('/news');
     }
 
     public function detail($id)

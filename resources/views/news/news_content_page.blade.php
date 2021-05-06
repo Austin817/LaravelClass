@@ -3,7 +3,7 @@
 
 
 @section ('css')
-    <link rel="stylesheet" href="/css/news_content_page.css">
+    <link rel="stylesheet" href="{{ asset('/css/news_content_page.css') }}">
 @endsection
 
 

@@ -43,7 +43,8 @@ a:hover{
 span{
     color: coral;
 }
-p{
+
+.ColumnBlockInfo p{
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 30px;
@@ -73,11 +74,34 @@ p{
 }
 .ColumnBlockInfo{
     width: 60%;
+    position: relative;
 }
 .hashtag{
     margin-top: 5px;
     margin-bottom: 15px;
 }
+.createBtn{
+    margin-left: 20px;
+}
+.createBtn button{
+    cursor: pointer;
+}
+.createBtn button:hover{
+    color: orange;
+}
+.deleteBtn{
+    margin-right: 15px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.deleteBtn button{
+    cursor: pointer;
+}
+.deleteBtn button:hover{
+    color: orange;
+}
+
 
 @media (max-width: 780px) {
     .ColumnBlockPic{
