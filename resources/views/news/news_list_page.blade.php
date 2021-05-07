@@ -21,26 +21,31 @@
 
         <ul>
             @foreach ($newData as $Data)
-            <li>
-                <div class="ColumnBlock">
-                    <div class="ColumnBlockPic">
-                        <img class="lazyloaded" src="{{$Data->img}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
-                    </div>
-                    <div class="ColumnBlockInfo">
-                        <div class="hashtag">
-                            <span class="color-purple">最新消息</span>
+                <li>
+                    <div class="ColumnBlock">
+                        <div class="ColumnBlockPic">
+                            <img class="lazyloaded" src="{{$Data->img}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
                         </div>
-                        <h3>
-                            <a href="/news/detail/{{$Data->id}}">{{$Data->title}}</a>
-                        </h3>
-                        <span>{{$Data->date}}</span>
-                        <p>{{$Data->content}}</p>
-                        <a class="deleteBtn" href="/news/delete/{{$Data->id}}">
-                            <button>Delete Item</button>
-                        </a>
+                        <div class="ColumnBlockInfo">
+                            <div class="hashtag">
+                                <span class="color-purple">最新消息</span>
+                            </div>
+                            <h3>
+                                <a href="/news/detail/{{$Data->id}}">{{$Data->title}}</a>
+                            </h3>
+                            <span>{{$Data->date}}</span>
+                            <p>{{$Data->content}}</p>
+                            <div class="function">
+                                <a class="editBtn" href="/news/edit/{{$Data->id}}">
+                                    <button>Edit Item</button>
+                                </a>
+                                <a class="deleteBtn" href="/news/delete/{{$Data->id}}">
+                                    <button>Delete Item</button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
             @endforeach   
         </ul>    
     </div>

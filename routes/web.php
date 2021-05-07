@@ -29,17 +29,20 @@ Route::get('/news','NewsController@index');
 // 顯示內頁資料
 Route::get('/news/detail/{id}','NewsController@detail');
 
-// 新增頁面資料
-Route::get('/news/create','NewsController@create');
-
 // 新增頁面資料(預設)
 Route::get('/news/createUnset/{title}','NewsController@createUnset');
+
+// 新增頁面資料
+Route::get('/news/create','NewsController@create');
 
 // 儲存資料
 Route::post('/news/store','NewsController@store');
 
+// 編輯資料
+Route::get('/news/edit/{id}','NewsController@edit');
+
 // 更新資料
-Route::get('/news/update{id}','NewsController@update');
+Route::post('/news/update/{id}','NewsController@update');
 
 // 刪除資料
 Route::get('/news/delete/{id}','NewsController@delete');
@@ -102,3 +105,7 @@ Route::get('/lesson1',function(){
 
     return 'hello world!';
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

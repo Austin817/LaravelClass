@@ -43,30 +43,47 @@ class NewsController extends Controller
        // 取得資料
             //dd($request->all());
        // 儲存資料至資料庫
-            News::create([
-                'title'=>$request->title,
-                'date'=>$request->date,
-                'img'=>$request->img,
-                'content'=>$request->content,
-                'view'=>0,
-            ]);
+            // News::create([
+            //     'title'=>$request->title,
+            //     'date'=>$request->date,
+            //     'img'=>$request->img,
+            //     'content'=>$request->content,
+            //     'view'=>0,
+            // ]);
+
+            News::create($request->all());   // 簡短寫法，會直接更改有傳進去的資料
+
        // 返回最新消息列表頁
             return redirect('/news');
-
     }
+
+
+
+    public function edit($id)
+    {
+        $newData = News::find($id);
+        return view('news.edit_news_page',compact('newData'));
+    }
+
+
 
     public function update($id,Request $request)
     {
-        News::
-            where('id', $id)
-            ->update([
-                'title'=>$request->title,
-                'date'=>$request->date,
-                'img'=>$request->img,
-                'content'=>$request->content,
-                'view'=>0,
-            ]);
+        // News::
+        //     find($id)
+        //     ->update([
+        //         'title'=>$request->title,
+        //         'date'=>$request->date,
+        //         'img'=>$request->img,
+        //         'content'=>$request->content,
+        //         'view'=>0,
+        //     ]);
+
+        News::find($id)->update($request->all());
+        return redirect('/news');
     }
+
+
 
     public function delete($id)
     {

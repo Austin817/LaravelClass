@@ -89,11 +89,15 @@ span{
 .createBtn button:hover{
     color: orange;
 }
-.deleteBtn{
-    margin-right: 15px;
+.function{
+    display: flex;
     position: absolute;
     right: 0;
     bottom: 0;
+    margin-right: 15px;
+}
+.function a{
+    margin-left: 10px;
 }
 .deleteBtn button{
     cursor: pointer;
@@ -101,6 +105,13 @@ span{
 .deleteBtn button:hover{
     color: orange;
 }
+.editBtn button{
+    cursor: pointer;
+}
+.editBtn button:hover{
+    color: orange;
+}
+
 
 
 @media (max-width: 780px) {
