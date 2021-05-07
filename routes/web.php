@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::view('/', 'index');  // 縮寫 view 預設本來就是 get
+Route::view('/', 'welcome');  // 縮寫 view 預設本來就是 get
 
+Route::prefix('news');
 
 // 顯示內頁
 Route::get('/news','NewsController@index');
