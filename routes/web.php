@@ -21,33 +21,40 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::view('/', 'welcome');  // 縮寫 view 預設本來就是 get
+Route::view('/', 'index');  // 縮寫 view 預設本來就是 get
 
-Route::prefix('news');
+Route::prefix('/news')->group(function (){
 
-// 顯示內頁
-Route::get('/news','NewsController@index');
+    // 顯示內頁
+    Route::get('/','NewsController@index');
+    
+    // 顯示內頁資料
+    Route::get('/detail/{id}','NewsController@detail');
 
-// 顯示內頁資料
-Route::get('/news/detail/{id}','NewsController@detail');
+    Route::middleware('auth')->group(function(){
 
-// 新增頁面資料(預設)
-Route::get('/news/createUnset/{title}','NewsController@createUnset');
+        // 新增頁面資料(預設)
+        Route::get('/createUnset/{title}','NewsController@createUnset');
+        
+        // 新增頁面資料
+        Route::get('/create','NewsController@create');
+        
+        // 儲存資料
+        Route::post('/store','NewsController@store');
+        
+        // 編輯資料
+        Route::get('/edit/{id}','NewsController@edit');
+        
+        // 更新資料
+        Route::post('/update/{id}','NewsController@update');
+        
+        // 刪除資料
+        Route::get('/delete/{id}','NewsController@delete');
+    });
+    
+   
+});
 
-// 新增頁面資料
-Route::get('/news/create','NewsController@create');
-
-// 儲存資料
-Route::post('/news/store','NewsController@store');
-
-// 編輯資料
-Route::get('/news/edit/{id}','NewsController@edit');
-
-// 更新資料
-Route::post('/news/update/{id}','NewsController@update');
-
-// 刪除資料
-Route::get('/news/delete/{id}','NewsController@delete');
 
 
 

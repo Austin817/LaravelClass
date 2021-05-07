@@ -313,7 +313,7 @@
                    <!--Grid row-->
                    <div class="row d-flex">
                           <!--Grid column-->
-                          <div class="col-lg-3 col-md-12 mb-4 mb-md-0 text-left mr-auto">
+                          <div class="col-lg-3 col-md-12 mb-4 mb-md-0 text-left mr-auto ml-5">
                                  <img class="mr-2" src="{{ asset('./IMG/svgexport-19.svg') }}" alt="">
                                  <h5 class="text-uppercase d-inline">數位方塊</h5>
                                  <p class="mt-3 font-weight-light">
