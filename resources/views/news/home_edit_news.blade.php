@@ -35,6 +35,9 @@
                             <span>{{$Data->date}}</span>
                             <p>{{$Data->content}}</p>
                             <div class="function">
+                                <a class="killBtn" data-href="/home/delete/{{$Data->id}}">
+                                    <button>Kill Item</button>
+                                </a>
                                 <a class="editBtn" href="/home/edit/{{$Data->id}}">
                                     <button>Edit Item</button>
                                 </a>
@@ -48,4 +51,18 @@
             @endforeach   
         </ul>    
     </div>
+@endsection
+
+
+@section ('js')
+    <script>
+        var btnDelete = document.querySelectorAll('.killBtn');
+        btnDelete.forEach(function (btn) {
+            btn.addEventListener('click',function () {
+                if (confirm ('真的?')) {
+                    location.href = this.getAttribute('data-href');
+                }
+            })
+        });
+    </script>
 @endsection
