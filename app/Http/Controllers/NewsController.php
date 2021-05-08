@@ -22,11 +22,6 @@ class NewsController extends Controller
 
 
 
-    public function create()
-    {
-        return view('news.create_news_page');
-    }
-
     public function createUnset($title)
     {
         News::create([
@@ -37,6 +32,28 @@ class NewsController extends Controller
             'view'=>0,
         ]);
     }
+
+
+
+    public function detail($id)
+    {
+        $newData = News::find($id);
+        return view('news.news_content_page',compact('newData'));
+    }
+
+
+    public function editNews()
+    {
+        $newData = News::get();
+        return view('news.home_edit_news',compact('newData'));
+    }
+
+
+    public function create()
+    {
+        return view('news.home_create_news_page');
+    }
+
 
     public function store(Request $request)
     {
@@ -54,17 +71,15 @@ class NewsController extends Controller
             News::create($request->all());   // 簡短寫法，會直接更改有傳進去的資料
 
        // 返回最新消息列表頁
-            return redirect('/news');
+            return redirect('/home/editNews');
     }
-
 
 
     public function edit($id)
     {
         $newData = News::find($id);
-        return view('news.edit_news_page',compact('newData'));
+        return view('news.home_edit_news_page',compact('newData'));
     }
-
 
 
     public function update($id,Request $request)
@@ -80,7 +95,7 @@ class NewsController extends Controller
         //     ]);
 
         News::find($id)->update($request->all());
-        return redirect('/news');
+        return redirect('/home/editNews');
     }
 
 
@@ -90,13 +105,7 @@ class NewsController extends Controller
         News::
             find($id)
             ->delete();
-        return redirect('/news');
-    }
-
-    public function detail($id)
-    {
-        $newData = News::find($id);
-        return view('news.news_content_page',compact('newData'));
+        return redirect('/home/editNews');
     }
 
 

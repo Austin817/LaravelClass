@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
 @section ('css')
     <link rel="stylesheet" href="{{ asset('/css/news_store_page.css') }}">
@@ -6,7 +6,7 @@
 
 @section('main')
     <div class="container p-5">
-        <form action="/news/update/{{$newData->id}}" method="POST" class="mx-auto">
+        <form action="/home/update/{{$newData->id}}" method="POST" class="mx-auto">
             @csrf
             <div class="form-group">
                 <label for="title">標題</label>

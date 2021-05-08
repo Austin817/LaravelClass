@@ -30,6 +30,15 @@ Route::prefix('/news')->group(function (){
     
     // 顯示內頁資料
     Route::get('/detail/{id}','NewsController@detail');
+   
+});
+
+
+Route::prefix('/home')->group(function (){
+
+    // 顯示內頁
+    Route::get('/','HomeController@index');
+    
 
     Route::middleware('auth')->group(function(){
 
@@ -50,6 +59,9 @@ Route::prefix('/news')->group(function (){
         
         // 刪除資料
         Route::get('/delete/{id}','NewsController@delete');
+
+        // 後台編輯資料
+        Route::get('/editNews','NewsController@editNews');
     });
     
    

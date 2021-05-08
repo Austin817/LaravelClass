@@ -1,11 +1,10 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
 @section ('css')
     <link rel="stylesheet" href="{{ asset('/css/news_list_page.css') }}">
 @endsection
 
-
-@section ('main')
+@section('main')
     <div class="container pt-5">
         <div class="title">
             <div class="title">
@@ -13,7 +12,7 @@
             </div>
         
             <div class="sort-item">
-                <span>資料總筆數：<b>175</b></span> <span>每頁筆數：<b>10</b></span> <span>總頁數：<b>18</b></span> <span>目前頁次：<b>1</b></span>
+                <span>資料總筆數：<b>175</b></span> <span>每頁筆數：<b>10</b></span> <span>總頁數：<b>18</b></span> <span>目前頁次：<b>1</b></span><a class="createBtn" href="/home/create"><button>Create New +</button></a>
             </div>
         </div>
 
@@ -35,6 +34,14 @@
                             </h3>
                             <span>{{$Data->date}}</span>
                             <p>{{$Data->content}}</p>
+                            <div class="function">
+                                <a class="editBtn" href="/home/edit/{{$Data->id}}">
+                                    <button>Edit Item</button>
+                                </a>
+                                <a class="deleteBtn" href="/home/delete/{{$Data->id}}">
+                                    <button>Delete Item</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -42,7 +49,3 @@
         </ul>    
     </div>
 @endsection
-
-
-
-    

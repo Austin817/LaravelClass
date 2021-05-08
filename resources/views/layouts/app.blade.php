@@ -21,9 +21,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -33,7 +33,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <a class="navbar-brand ml-5 mr-4" href="{{ url('/') }}">
+                            Back Front
+                        </a>
+                        <a class="navbar-brand mr-4" href="{{ url('/home') }}">
+                            Home
+                        </a>
+                        <a class="navbar-brand mr-4" href="{{ url('/home/editNews') }}">
+                            Edit News
+                        </a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
