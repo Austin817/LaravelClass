@@ -60,18 +60,14 @@ Route::prefix('/home')->group(function (){
         // 刪除資料
         Route::get('/delete/{id}','NewsController@delete');
 
-        // 後台編輯資料
-        Route::get('/editNews','NewsController@editNews');
+        // 後台顯示表單資料
+        Route::get('/editNewsTable','NewsController@editNewsTable');
     });
     
    
 });
 
-
-
-
-   
-
+Route::resource('admin', 'NewsResourceController');
 
 
 

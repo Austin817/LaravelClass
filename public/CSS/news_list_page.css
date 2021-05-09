@@ -81,7 +81,7 @@ span{
     margin-bottom: 15px;
 }
 .createBtn{
-    margin-left: 20px;
+    margin-left: 30px;
 }
 .createBtn button{
     cursor: pointer;
@@ -110,6 +110,17 @@ span{
 }
 .editBtn button:hover{
     color: orange;
+}
+.killBtn button{
+    cursor: pointer;
+}
+.killBtn button:hover{
+    color: orange;
+}
+#news_wrapper{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 95%;
 }
 
 

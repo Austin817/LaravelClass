@@ -5,6 +5,54 @@
 @endsection
 
 @section('main')
+
+
+
+
+
+    <table id="news" class="display">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>date</th>
+                <th>img</th>
+                <th>content</th>
+                <th>Features
+                    <a class="createBtn float-right" href="/home/create">
+                        <button>Create New +</button>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($newData as $Data)
+                <tr>
+                    <td>{{$Data->title}}</td>
+                    <td>{{$Data->date}}</td>
+                    <td>{{$Data->img}}</td>
+                    <td>{{$Data->content}}</td>
+                    <td>
+                        <a class="killBtn" data-href="/home/delete/{{$Data->id}}">
+                            <button>Kill Item</button>
+                        </a>
+                        <a class="editBtn" href="/home/edit/{{$Data->id}}">
+                            <button>Edit Item</button>
+                        </a>
+                        <a class="deleteBtn" href="/home/delete/{{$Data->id}}">
+                            <button>Delete Item</button>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach 
+        </tbody>
+    </table>
+
+
+
+
+
+
+
     <div class="container pt-5">
         <div class="title">
             <div class="title">
@@ -64,5 +112,18 @@
                 }
             })
         });
+    </script>
+
+    <script>
+        $(function () {
+
+$("#news").DataTable({
+    searching: true,    //關閉filter功能
+    columnDefs: [{
+        targets: [4],
+        orderable: false,
+    }]
+});
+});
     </script>
 @endsection

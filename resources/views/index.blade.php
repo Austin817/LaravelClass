@@ -1,4 +1,4 @@
-@extendS('layouts.template')
+@extends('layouts.template')
 
 
 

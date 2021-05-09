@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\News;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class NewsController extends Controller
+class NewsResourceController extends Controller
 {
     //
     public function index()
@@ -114,6 +113,4 @@ class NewsController extends Controller
         return redirect('/home/editNewsTable');
     }
 
-
 }
- 

@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
     @yield('css')
 
 </head>
@@ -39,8 +40,8 @@
                         <a class="navbar-brand mr-4" href="{{ url('/home') }}">
                             Home
                         </a>
-                        <a class="navbar-brand mr-4" href="{{ url('/home/editNews') }}">
-                            Edit News
+                        <a class="navbar-brand mr-4" href="{{ url('/home/editNewsTable') }}">
+                            Edit News Table
                         </a>
                     </ul>
 
@@ -90,6 +91,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     @yield('js')
 
 </body>
