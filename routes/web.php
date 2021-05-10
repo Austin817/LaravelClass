@@ -58,7 +58,7 @@ Route::prefix('/home')->group(function (){
         Route::get('/edit/{id}','NewsController@edit');
         
         // 更新資料
-        Route::post('/update/{id}','NewsController@update');
+        Route::put('/update/{id}','NewsController@update');
         
         // 刪除資料
         Route::get('/delete/{id}','NewsController@delete');

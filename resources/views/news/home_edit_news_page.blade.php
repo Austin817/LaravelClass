@@ -8,6 +8,7 @@
     <div class="container p-5">
         <form action="/home/update/{{$newData->id}}" method="POST" class="mx-auto" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="title">標題</label>
                 <input type="text" id="title" name="title" value="{{$newData->title}}">
