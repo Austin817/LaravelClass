@@ -5,22 +5,11 @@ namespace App\Http\Controllers;
 use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class NewsController extends Controller
 {
     //
-    public function index()
-    {
-        $newData = News::get();
-        // dd($newData);
-
-        // $newData = DB::table('news')->get();
-        // dd($newData);
-        // dd($newData[0]->img);
-        return view('news.news_list_page',compact('newData'));
-    }
-
-
 
     public function createUnset($title)
     {
@@ -32,15 +21,6 @@ class NewsController extends Controller
             'view'=>0,
         ]);
     }
-
-
-
-    public function detail($id)
-    {
-        $newData = News::find($id);
-        return view('news.news_content_page',compact('newData'));
-    }
-
 
     public function editNews()
     {
@@ -63,6 +43,16 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
+
+        $requsetData = $request->all();
+
+        if($request->hasFile('img')) {
+            $file = $request->file('img');
+            $path = $this->fileUpload($file,'productImg');
+            $requsetData['img'] = $path;
+        }
+
+
        // 取得資料
             //dd($request->all());
        // 儲存資料至資料庫
@@ -74,7 +64,9 @@ class NewsController extends Controller
             //     'view'=>0,
             // ]);
 
-            News::create($request->all());   // 簡短寫法，會直接更改有傳進去的資料
+
+
+            News::create($requsetData);   // 簡短寫法，會直接更改有傳進去的資料
 
        // 返回最新消息列表頁
             return redirect('/home/editNewsTable');
@@ -100,7 +92,20 @@ class NewsController extends Controller
         //         'view'=>0,
         //     ]);
 
-        News::find($id)->update($request->all());
+        $item = News::find($id);
+
+        $requsetData = $request->all();
+
+        if($request->hasFile('img')) {
+            $old_image = $item->img;
+            $file = $request->file('img');
+            $path = $this->fileUpload($file,'productImg');
+            $requsetData['img'] = $path;
+            File::delete(public_path().$old_image);
+        }
+
+        $item->update($requsetData);
+
         return redirect('/home/editNewsTable');
     }
 
@@ -108,11 +113,39 @@ class NewsController extends Controller
 
     public function delete($id)
     {
-        News::
-            find($id)
-            ->delete();
+
+        $item = News::find($id);
+        $old_image = $item->img;
+        if(file_exists(public_path().$old_image)){
+            File::delete(public_path().$old_image);
+        }
+        $item->delete();
+    
         return redirect('/home/editNewsTable');
+       
     }
+    
+
+    private function fileUpload($file,$dir){
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if( ! is_dir('upload/')){
+            mkdir('upload/');
+        }
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if ( ! is_dir('upload/'.$dir)) {
+            mkdir('upload/'.$dir);
+        }
+        //取得檔案的副檔名
+        $extension = $file->getClientOriginalExtension();
+        //檔案名稱會被重新命名
+        $filename = strval(time().md5(rand(100, 200))).'.'.$extension;
+        //移動到指定路徑
+        move_uploaded_file($file, public_path().'/upload/'.$dir.'/'.$filename);
+        //回傳 資料庫儲存用的路徑格式
+        return '/upload/'.$dir.'/'.$filename;
+    }
+
+
 
 
 }

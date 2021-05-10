@@ -21,15 +21,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
+
+// Front Controller
+
 Route::view('/', 'index');  // 縮寫 view 預設本來就是 get
 
 Route::prefix('/news')->group(function (){
 
     // 顯示內頁
-    Route::get('/','NewsController@index');
+    Route::get('/','FrontController@index');
     
     // 顯示內頁資料
-    Route::get('/detail/{id}','NewsController@detail');
+    Route::get('/detail/{id}','FrontController@detail');
    
 });
 
@@ -67,7 +70,7 @@ Route::prefix('/home')->group(function (){
    
 });
 
-Route::resource('admin', 'NewsResourceController');
+// Route::resource('admin', 'NewsResourceController');
 
 
 

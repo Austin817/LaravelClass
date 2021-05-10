@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{$Data->title}}</td>
                     <td>{{$Data->date}}</td>
-                    <td>{{$Data->img}}</td>
+                    <td><img src="{{asset($Data->img)}}" style="height:auto;width:100px" alt=""></td>
                     <td>{{$Data->content}}</td>
                     <td>
                         <a class="killBtn" data-href="/home/delete/{{$Data->id}}">
@@ -71,7 +71,7 @@
                 <li>
                     <div class="ColumnBlock">
                         <div class="ColumnBlockPic">
-                            <img class="lazyloaded" src="{{$Data->img}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
+                            <img class="lazyloaded" src="{{asset($Data->img)}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
                         </div>
                         <div class="ColumnBlockInfo">
                             <div class="hashtag">

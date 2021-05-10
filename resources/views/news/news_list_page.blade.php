@@ -24,7 +24,7 @@
                 <li>
                     <div class="ColumnBlock">
                         <div class="ColumnBlockPic">
-                            <img class="lazyloaded" src="{{$Data->img}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
+                            <img class="lazyloaded" src="{{asset($Data->img)}}" alt="" oncontextmenu="alert('版權僅適用本網站禁止下載使用');return false;">
                         </div>
                         <div class="ColumnBlockInfo">
                             <div class="hashtag">
