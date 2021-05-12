@@ -84,7 +84,7 @@ Route::prefix('/home')->group(function (){
 
 // 顯示首頁
 
-Route::view('/', 'index'); 
+Route::view('/product', 'index'); 
 
 // Product Front Controller
 
