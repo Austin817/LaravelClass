@@ -116,14 +116,13 @@
 
     <script>
         $(function () {
-
-$("#news").DataTable({
-    searching: true,    //關閉filter功能
-    columnDefs: [{
-        targets: [4],
-        orderable: false,
-    }]
-});
-});
+            $("#news").DataTable({
+                searching: true,    //關閉filter功能
+                columnDefs: [{
+                    targets: [4],
+                    orderable: false,
+                }]
+            });
+        });
     </script>
 @endsection
