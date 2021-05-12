@@ -15,28 +15,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
+// news news news news news news news news news news news news news news news news news news news news news news news news news //
+
+
 // 顯示首頁
 
 // Route::get('/', function () {
 //     return view('index');
 // });
 
+Route::view('/', 'index');       // 縮寫 view 預設本來就是 get
 
-// Front Controller
 
-Route::view('/', 'index');  // 縮寫 view 預設本來就是 get
 
+
+// News Front Controller
 Route::prefix('/news')->group(function (){
 
     // 顯示內頁
-    Route::get('/','FrontController@index');
+    Route::get('/','NewsFrontController@index');
     
     // 顯示內頁資料
-    Route::get('/detail/{id}','FrontController@detail');
+    Route::get('/detail/{id}','NewsFrontController@detail');
    
 });
 
 
+
+// News Controller
 Route::prefix('/home')->group(function (){
 
     // 顯示內頁
@@ -70,13 +77,25 @@ Route::prefix('/home')->group(function (){
    
 });
 
-// Route::resource('admin', 'NewsResourceController');
+
+
+// product product product product product product product product product product product product product product product product //
+
+
+// 顯示首頁
+
+Route::view('/', 'index'); 
+
+// Product Front Controller
+
+// Product Resource Controller
+Route::resource('product', 'ProductResourceController');
 
 
 
 
 
-
+// test test test test test test test test test test test test test test test test test test test test test test test test //
 
 Route::get('/test',function(){
 

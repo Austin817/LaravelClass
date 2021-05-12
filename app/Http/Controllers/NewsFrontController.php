@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class FrontController extends Controller
+class NewsFrontController extends Controller
 {
     //
     public function index()

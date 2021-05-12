@@ -261,7 +261,7 @@
                                                  <span class="sr-only">(current)</span></a>
                                    </li>
                                    <li class="nav-item active">
-                                          <a class="nav-link" href="#">Blog
+                                          <a class="nav-link" href="/product">Product
                                                  <span class="sr-only">(current)</span></a>
                                    </li>
                                    <li class="nav-item active">
