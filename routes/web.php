@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// news news news news news news news news news news news news news news news news news news news news news news news news news //
+// news news news news news news news news news news news news news news news news news news news news news news news news news news news news news news news news news //
 
 
 // 顯示首頁
@@ -40,6 +40,7 @@ Route::prefix('/news')->group(function (){
     Route::get('/detail/{id}','NewsFrontController@detail');
    
 });
+
 
 
 
@@ -79,23 +80,38 @@ Route::prefix('/home')->group(function (){
 
 
 
-// product product product product product product product product product product product product product product product product //
+// product product product product product product product product product product product product product product product product product product product product product //
 
 
-// 顯示首頁
-
-Route::view('/product', 'index'); 
 
 // Product Front Controller
 
+
+
+
+
+
 // Product Resource Controller
-Route::resource('product', 'ProductResourceController');
+Route::resource('/product', 'ProductResourceController');
+
+
+// Product Resource_Type Controller
+Route::prefix('/product')->group(function (){
+    Route::resource('product_type', 'ProductResourceTypeController');
+});
 
 
 
 
 
-// test test test test test test test test test test test test test test test test test test test test test test test test //
+
+
+
+
+
+
+
+// test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test //
 
 Route::get('/test',function(){
 
