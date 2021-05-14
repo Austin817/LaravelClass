@@ -17,7 +17,7 @@ class ProductResourceController extends Controller
     public function index()
     {
         $newData = Product::get();
-        return view('product.index',compact('newData'));
+        return view('products.index',compact('newData'));
     }
 
     /**
@@ -28,6 +28,7 @@ class ProductResourceController extends Controller
     public function create()
     {
         //
+        return view('products.home_create_products_page');
     }
 
     /**
@@ -39,15 +40,23 @@ class ProductResourceController extends Controller
     public function store(Request $request)
     {
         //
-        $productData = $request->all();
+        $requestData = $request->all();
 
         if($request->hasFile('img')) {
             $file = $request->all();
             $path = Storage::disk('myfile')->putFile('product',$file);
-            $productData['img'] = Storage::disk('myfile')->url($path);
+            $requestData['img'] = Storage::disk('myfile')->url($path);
         }
 
-        Product::create($productData);
+
+        $product = Product::create($requestData);
+
+        // $imgs = $request->file('img');
+        // foreach($imgs as $img){
+        //     // 存檔並取得檔案在myfile內的路徑
+        //     $path = 
+        // }
+
 
         return redirect('/product');
 

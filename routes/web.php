@@ -50,7 +50,7 @@ Route::prefix('/home')->group(function (){
     // 顯示內頁
     Route::get('/','HomeController@index');
     
-
+    // 登入需求
     Route::middleware('auth')->group(function(){
 
         // 新增頁面資料(預設)
@@ -83,21 +83,30 @@ Route::prefix('/home')->group(function (){
 // product product product product product product product product product product product product product product product product product product product product product //
 
 
-
 // Product Front Controller
-
-
-
-
+Route::get('/product','ProductController@index');
 
 
 // Product Resource Controller
-Route::resource('/product', 'ProductResourceController');
+Route::prefix('/home')->group(function (){
+
+    // 顯示內頁
+    Route::get('/','HomeController@index');
+    
+    // 登入需求
+    Route::middleware('auth')->group(function(){
+
+        Route::resource('/product', 'ProductResourceController');
+        
+    });
+       
+});
+
 
 
 // Product Resource_Type Controller
-Route::prefix('/product')->group(function (){
-    Route::resource('product_type', 'ProductResourceTypeController');
+Route::prefix('/home/product')->group(function (){
+    Route::resource('/product_type', 'ProductResourceTypeController');
 });
 
 
@@ -111,7 +120,10 @@ Route::prefix('/product')->group(function (){
 
 
 
+
+
 // test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test //
+
 
 Route::get('/test',function(){
 

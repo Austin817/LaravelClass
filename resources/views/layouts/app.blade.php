@@ -43,6 +43,9 @@
                         <a class="navbar-brand mr-4" href="{{ url('/home/editNewsTable') }}">
                             Edit News Table
                         </a>
+                        <a class="navbar-brand mr-4" href="{{ url('/home/editNewsTable') }}">
+                            Edit Products Table
+                        </a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
