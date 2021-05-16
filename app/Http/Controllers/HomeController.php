@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $newData = News::get();
-        return view('home',compact('newData'));
+        return view('home');
     }
 }

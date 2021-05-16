@@ -22,16 +22,11 @@ class NewsController extends Controller
         ]);
     }
 
-    public function editNews()
-    {
-        $newData = News::get();
-        return view('news.home_edit_news',compact('newData'));
-    }
 
     public function editNewsTable()
     {
-        $newData = News::get();
-        return view('news.home_edit_news_table',compact('newData'));
+        $newsData = News::get();
+        return view('news.home_edit_news_table',compact('newsData'));
     }
 
 
@@ -75,8 +70,8 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        $newData = News::find($id);
-        return view('news.home_edit_news_page',compact('newData'));
+        $newsData = News::find($id);
+        return view('news.home_edit_news_page',compact('newsData'));
     }
 
 

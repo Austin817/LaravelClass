@@ -43,7 +43,7 @@
                         <a class="navbar-brand mr-4" href="{{ url('/home/editNewsTable') }}">
                             Edit News Table
                         </a>
-                        <a class="navbar-brand mr-4" href="{{ url('/home/editNewsTable') }}">
+                        <a class="navbar-brand mr-4" href="{{ url('/home/product') }}">
                             Edit Products Table
                         </a>
                     </ul>
@@ -87,7 +87,6 @@
         <main class="py-4">
             @yield('content')
             @yield('main')
-
         </main>
     </div>
 

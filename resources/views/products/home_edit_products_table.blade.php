@@ -17,7 +17,7 @@
 
 
 
-    <table id="news" class="display">
+    <table id="products" class="display">
         <thead>
             <tr>
                 <th>name</th>
@@ -26,14 +26,14 @@
                 <th>description</th>
                 <th>price</th>
                 <th>Features
-                    <a class="createBtn float-right" href="/home/create">
+                    <a class="createBtn float-right" href="/home/product/create">
                         <button>Create New +</button>
                     </a>
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($newData as $Data)
+            @foreach ($productsData as $Data)
                 <tr>
                     <td>{{$Data->name}}</td>
                     <td>{{$Data->type_id}}</td>
@@ -62,11 +62,11 @@
 
 
 
-    @foreach ($newData as $Data)
+    @foreach ($productsData as $Data)
 
     <div class="wrapper">
       <div class="product-img">
-        <img src="{{asset($Data->img)}}" height="420" width="327">
+        <img src="{{asset($Data->img)}}" height="auto" width="327">
       </div>
       <div class="product-info">
         <div class="product-text">
@@ -74,8 +74,8 @@
           <h2>by studio and friends</h2>
           <p>{{$Data->description}}</p>
         </div>
-        <div class="product-price-btn">
-          <p><span>{{$Data->price}}</span>$</p>
+        <div class="product-price-btn d-flex flex-column mt-0 justify-content-between">
+          <p>$<span>{{$Data->price}}</span></p>
           <button type="button">buy now</button>
         </div>
       </div>
@@ -109,7 +109,7 @@
 
     <script>
         $(function () {
-            $("#news").DataTable({
+            $("#products").DataTable({
                 searching: true,    //關閉filter功能
                 columnDefs: [{
                     targets: [5],

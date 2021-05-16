@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($newData as $Data)
+            @foreach ($newsData as $Data)
                 <tr>
                     <td>{{$Data->title}}</td>
                     <td>{{$Data->date}}</td>
@@ -67,7 +67,7 @@
         <hr>
 
         <ul>
-            @foreach ($newData as $Data)
+            @foreach ($newsData as $Data)
                 <li>
                     <div class="ColumnBlock">
                         <div class="ColumnBlockPic">

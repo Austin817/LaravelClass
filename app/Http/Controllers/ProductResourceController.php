@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductImg;
+use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +18,9 @@ class ProductResourceController extends Controller
      */
     public function index()
     {
-        $newData = Product::get();
-        return view('products.index',compact('newData'));
+        //
+        $productsData = Product::get();
+        return view('products.home_edit_products_table',compact('productsData'));
     }
 
     /**
@@ -28,7 +31,8 @@ class ProductResourceController extends Controller
     public function create()
     {
         //
-        return view('products.home_create_products_page');
+        $productTypesData = ProductType::get();
+        return view('products.home_create_products_page',compact('productTypesData'));
     }
 
     /**
@@ -43,22 +47,30 @@ class ProductResourceController extends Controller
         $requestData = $request->all();
 
         if($request->hasFile('img')) {
-            $file = $request->all();
+            $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('product',$file);
             $requestData['img'] = Storage::disk('myfile')->url($path);
         }
 
 
-        $product = Product::create($requestData);
+        $products = Product::create($requestData);
 
-        // $imgs = $request->file('img');
-        // foreach($imgs as $img){
-        //     // 存檔並取得檔案在myfile內的路徑
-        //     $path = 
-        // }
+        $imgs = $request->file('imgs');
+        foreach($imgs as $img){
+            // 存檔並取得檔案在myfile內的路徑
+            $path = Storage::disk('myfile')->putFile('productImg',$img);
+            // 取得檔案在public的完整路徑
+            $publicPath = Storage::disk('myfile')->url($path);
+            // 存到資料庫
+            ProductImg::create([
+                'product_id'=>$products->id,
+                'img'=>$publicPath
+            ]);
+
+        }
 
 
-        return redirect('/product');
+        return redirect('/home/product');
 
     }
 
@@ -104,7 +116,7 @@ class ProductResourceController extends Controller
             // 儲存新圖片
             $file = $request->all('img');
             $path = Storage::disk('myfile')->putFile('product',$file);
-            $productData['img'] = Storage::disk('myfile')->url($path);
+            $requestData['img'] = Storage::disk('myfile')->url($path);
         }
 
         // 更新資料庫

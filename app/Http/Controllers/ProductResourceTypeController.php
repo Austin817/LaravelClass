@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\ProductType;
 use Illuminate\Http\Request;
 
 class ProductResourceTypeController extends Controller
@@ -14,6 +16,7 @@ class ProductResourceTypeController extends Controller
     public function index()
     {
         //
+       
     }
 
     /**
@@ -23,7 +26,9 @@ class ProductResourceTypeController extends Controller
      */
     public function create()
     {
-        //
+        ProductType::create([
+            'type_name' => 'Doll'
+        ]);
     }
 
     /**
