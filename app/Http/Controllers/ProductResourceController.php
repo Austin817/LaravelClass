@@ -53,7 +53,7 @@ class ProductResourceController extends Controller
         }
 
 
-        $products = Product::create($requestData);
+        $product = Product::create($requestData);
 
         $imgs = $request->file('imgs');
         foreach($imgs as $img){
@@ -63,7 +63,7 @@ class ProductResourceController extends Controller
             $publicPath = Storage::disk('myfile')->url($path);
             // 存到資料庫
             ProductImg::create([
-                'product_id'=>$products->id,
+                'product_id'=>$product->id,
                 'img'=>$publicPath
             ]);
 
@@ -93,7 +93,9 @@ class ProductResourceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productData = Product::with('linkProductType','linkProductImg')->find($id);
+        $productTypesData = ProductType::get();
+        return view('products.home_edit_products_page',compact('productData','productTypesData'));
     }
 
     /**
@@ -114,14 +116,30 @@ class ProductResourceController extends Controller
             File::delete(public_path().$product->img);
 
             // 儲存新圖片
-            $file = $request->all('img');
+            $file = $request->file('img');
             $path = Storage::disk('myfile')->putFile('product',$file);
             $requestData['img'] = Storage::disk('myfile')->url($path);
         }
 
         // 更新資料庫
         $product->update($requestData);
-        return redirect('/product');
+
+        // 上傳多個圖片
+        $imgs = $request->file('imgs');
+        foreach($imgs ?? [] as $img){
+            // 存檔並取得檔案在myfile內的路徑
+            $path = Storage::disk('myfile')->putFile('productImg',$img);
+            // 取得檔案在public的完整路徑
+            $publicPath = Storage::disk('myfile')->url($path);
+            // 存到資料庫
+            ProductImg::create([
+                'product_id'=>$product->id,
+                'img'=>$publicPath
+            ]);
+        
+        }
+
+        return redirect('/home/product');
     }
 
     /**

@@ -101,7 +101,7 @@ Route::prefix('/home')->group(function (){
     });
        
 });
-
+// Austin is my friend
 
 
 // Product Resource_Type Controller

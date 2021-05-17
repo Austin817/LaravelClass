@@ -43,7 +43,7 @@ class NewsController extends Controller
 
         if($request->hasFile('img')) {
             $file = $request->file('img');
-            $path = $this->fileUpload($file,'productImg');
+            $path = $this->fileUpload($file,'newImg');
             $requsetData['img'] = $path;
         }
 

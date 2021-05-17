@@ -44,7 +44,7 @@
                         <a class="killBtn" data-href="/home/delete/{{$Data->id}}">
                             <button>Kill Item</button>
                         </a>
-                        <a class="editBtn" href="/home/edit/{{$Data->id}}">
+                        <a class="editBtn" href="/home/product/{{$Data->id}}/edit">
                             <button>Edit Item</button>
                         </a>
                         <a class="deleteBtn" href="/home/delete/{{$Data->id}}">
@@ -66,7 +66,7 @@
 
     <div class="wrapper">
       <div class="product-img">
-        <img src="{{asset($Data->img)}}" height="auto" width="327">
+        <div style="background-image:url({{asset($Data->img)}}); background-position:center; background-size:cover; background-repeat:no-repeat; width:327px; height:420px;"></div>
       </div>
       <div class="product-info">
         <div class="product-text">

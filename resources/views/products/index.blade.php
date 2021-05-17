@@ -15,7 +15,7 @@
 
   <div class="wrapper">
     <div class="product-img">
-      <img src="{{asset($Data->img)}}" height="auto" width="327">
+      <div style="background-image:url({{asset($Data->img)}}); background-position:center; background-size:cover; background-repeat:no-repeat; width:327px; height:420px;"></div>
     </div>
     <div class="product-info">
       <div class="product-text">
