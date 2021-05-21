@@ -84,7 +84,7 @@ Route::prefix('/home')->group(function (){
 
 
 // Product Front Controller
-Route::get('/product','ProductController@index');
+Route::get('/product','ProductFrontController@index');
 
 
 // Product Resource Controller
@@ -97,11 +97,11 @@ Route::prefix('/home')->group(function (){
     Route::middleware('auth')->group(function(){
 
         Route::resource('/product', 'ProductResourceController');
+        Route::post('/product/deleteImg', 'ProductResourceController@deleteImg');
         
     });
        
 });
-// Austin is my friend
 
 
 // Product Resource_Type Controller

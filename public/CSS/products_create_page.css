@@ -23,7 +23,7 @@ form div input{
 form div textarea{
     width: 100%;
 }
-.img-delete-btns{
+.img-delete-btn-area{
     position: relative;
 }
 .img-delete-btn{
@@ -36,8 +36,8 @@ form div textarea{
     height: 30px;
     border-radius: 50%;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -10px;
+    top: -10px;
     cursor: pointer;
     z-index: 99;
 }

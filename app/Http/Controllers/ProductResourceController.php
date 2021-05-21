@@ -142,6 +142,17 @@ class ProductResourceController extends Controller
         return redirect('/home/product');
     }
 
+
+    public function deleteImg(Request $request)
+    {
+        //
+        $img = ProductImg::find($request->id);
+        File::delete(public_path().$img->img);
+        $img->delete();
+        return 'success';
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
