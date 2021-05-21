@@ -6,9 +6,9 @@
 
 @section('main')
     <div class="container p-5">
-        <form action="/home/product" method="POST" class="mx-auto" enctype="multipart/form-data">
+        <form action="/home/product/{{$productData->id}}" method="POST" class="mx-auto" enctype="multipart/form-data">
             @csrf
-            @method()
+            @method('PUT')
             <div class="form-group">
                 <label for="name">名字</label>
                 <input type="text" id="name" name="name" value="{{$productData->name}}" required>
@@ -43,7 +43,7 @@
                         </div>
                     @endforeach
                 </div>
-                <input type="file" accept="image/*" id="imgs" name="imgs[]" multiple required>
+                <input type="file" accept="image/*" id="imgs" name="imgs[]" multiple>
             </div>
             <button type="submit">送出</button>
         </form>
@@ -80,4 +80,6 @@
             })
         });
     </script>
-@e
+@endsection
+
+
