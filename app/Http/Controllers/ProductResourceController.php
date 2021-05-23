@@ -161,10 +161,17 @@ class ProductResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $product = Product::find($id);
+        // 刪除主要圖片資料
+        $product = Product::with('linkProductImg')->find($id);
         File::delete(public_path().$product->img);
+
+        // 刪除圖片群資料庫資料
+        foreach($product->linkProductImg ?? [] as $img){
+            File::delete(public_path().$img->img);
+            $img->delete();
+        }
+
         $product->delete();
-        return redirect('/product');
+        return redirect('/home/product');
     }
 }

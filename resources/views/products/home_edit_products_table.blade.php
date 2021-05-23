@@ -47,8 +47,12 @@
                         <a class="editBtn" href="/home/product/{{$Data->id}}/edit">
                             <button>Edit Item</button>
                         </a>
-                        <a class="deleteBtn" href="/home/delete/{{$Data->id}}">
+                        <a class="deleteBtn" data-id="#delete_{{$Data->id}}">
                             <button>Delete Item</button>
+                            <form id="delete_{{$Data->id}}" action="/home/product/{{$Data->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                         </a>
                     </td>
                 </tr>
