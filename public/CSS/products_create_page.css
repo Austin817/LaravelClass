@@ -14,13 +14,13 @@ form{
     flex-direction: column;
     align-items: center;
 }
-form div{
+form>div{
     width: 100%;
 }
-form div input{
+form>div>input{
     width: 100%;
 }
-form div textarea{
+form>div>textarea{
     width: 100%;
 }
 .img-delete-btn-area{

@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="description">描述</label>
-                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+                <textarea name="description" id="summernote" cols="30" rows="10" required></textarea>
             </div>
             <div class="form-group">
                 <label for="price">價格</label>
@@ -39,4 +39,21 @@
             <button type="submit">送出</button>
         </form>
     </div>
+
+    {{-- <article>
+        {{ 資料 }}  innerTEXT
+
+        {!!資料!!}  innerHTML  
+        {!!--資料--!!}
+    </article> --}}
+
 @endsection
+
+@section ('js')
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summ
+        });
+    </script>
+@endsection
+

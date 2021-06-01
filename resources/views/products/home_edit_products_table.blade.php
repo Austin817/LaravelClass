@@ -38,7 +38,7 @@
                     <td>{{$Data->name}}</td>
                     <td>{{$Data->type_id}}</td>
                     <td><img src="{{asset($Data->img)}}" style="height:auto;width:100px" alt=""></td>
-                    <td>{{$Data->description}}</td>
+                    <td>{!!$Data->description!!}</td>
                     <td>{{$Data->price}}</td>
                     <td>
                         <a class="killBtn" data-href="/home/delete/{{$Data->id}}">
@@ -76,7 +76,7 @@
         <div class="product-text">
           <h1>{{$Data->name}}</h1>
           <h2>by studio and friends</h2>
-          <p>{{$Data->description}}</p>
+          <div class="description">{!!$Data->description!!}</div>
         </div>
         <div class="product-price-btn d-flex flex-column mt-0 justify-content-between">
           <p>$<span>{{$Data->price}}</span></p>

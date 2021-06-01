@@ -63,7 +63,7 @@
     letter-spacing: 0.2em;
   }
   
-  .product-text p {
+  .product-text>.description {
     height: 125px;
     margin: 0 0 0 38px;
     font-family: 'Playfair Display', serif;
@@ -81,7 +81,7 @@
     position: relative;
   }
   
-  .product-price-btn p {
+  .product-price-btn>p {
     display: inline-block;
     height: 50px;
     font-family: 'Trocchi', serif;
