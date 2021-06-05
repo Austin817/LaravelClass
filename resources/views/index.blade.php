@@ -506,28 +506,41 @@
     </div>
 
     <!--Google map-->
-    <div id="map-container-google-1" class="z-depth-1-half map-container mt-100 position-relative" style="height: 100vh; width:100%">
-           <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                  style="border:0; height: 100vh; width:100%;filter: grayscale(1) contrast(1.2) opacity(0.4);" allowfullscreen>
-           </iframe>
-           <div class="mapForm position-absolute" style="width:32%">
-                  <form class="form">
-                         <h5 class="mb-3 mt-2">Feedback</h5>
-                         <p class="mb-4">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
-                         <div class="form-group">
-                                <label for="exampleFormControlInput1">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                         </div>
-                         <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Message</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                         </div>
-                         <button type="button" class="btn btn-primary px-4 py-2 mb-2 w-100" style="color: honeydew;">Button</button>
-                         <small class="font-weight-light">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</small>
-                  </form>
-           </div>
+    <div id="map">
+       <div id="map-container-google-1" class="z-depth-1-half map-container mt-100 position-relative" style="height: 100vh; width:100%">
+              <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                     style="border:0; height: 100vh; width:100%;filter: grayscale(1) contrast(1.2) opacity(0.4);" allowfullscreen>
+              </iframe>
+              <div class="mapForm position-absolute" style="width:32%">
+                     <form action="/contact_us" method="POST" class="form"  enctype="multipart/form-data">
+                        @csrf
+                        <h5 class="mb-3 mt-2">Feedback</h5>
+                        <p class="mb-4">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Name</label>
+                            <input name="name" type="text" class="form-control" value="{{old('name')}}" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                               <label for="exampleFormControlInput2">Email</label>
+                               <input name="email" type="email" class="form-control" value="{{old('email')}}" id="exampleFormControlInput2" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                               <label for="exampleFormControlTextarea1">Message</label>
+                               <textarea name="message" class="form-control" value="{{old('message')}}" id="exampleFormControlTextarea1" rows="1" required></textarea>
+                        </div>
+                        <div class="form-group">
+                               {!! htmlFormSnippet() !!}
+                               @error('g-recaptcha-response')
+                                   <strong>你再想一下你什麼沒有填</strong>
+                               @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary px-4 py-2 mb-2 w-100" style="color: honeydew;">Button</button>
+                        <small class="font-weight-light">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</small>
+                     </form>
+              </div>
+       </div>   
     </div>
-
+    
     <!--Google Maps-->
 
 

@@ -27,9 +27,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');       // 縮寫 view 預設本來就是 get
 
+Route::post('/contact_us','ContactUsController@store');
 
 
 
+// 前端畫面
 // News Front Controller
 Route::prefix('/news')->group(function (){
 
@@ -43,7 +45,7 @@ Route::prefix('/news')->group(function (){
 
 
 
-
+// 後台畫面
 // News Controller
 Route::prefix('/home')->group(function (){
 
@@ -83,11 +85,11 @@ Route::prefix('/home')->group(function (){
 // product product product product product product product product product product product product product product product product product product product product product //
 
 
+// 前端畫面
 // Product Front Controller
 Route::get('/product','ProductFrontController@index');
 
-
-// Product Resource Controller
+// 後台畫面
 Route::prefix('/home')->group(function (){
 
     // 顯示內頁
@@ -96,8 +98,14 @@ Route::prefix('/home')->group(function (){
     // 登入需求
     Route::middleware('auth')->group(function(){
 
+        // Product Resource Controller
         Route::resource('/product', 'ProductResourceController');
         Route::post('/product/deleteImg', 'ProductResourceController@deleteImg');
+
+        // Product Tool Box Controller
+        Route::prefix('/summernote')->group(function() {
+            Route::POST('/store','ProductToolBoxController@summernoteStore');
+        });
         
     });
        

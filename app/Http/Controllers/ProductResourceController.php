@@ -44,6 +44,7 @@ class ProductResourceController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->file('test'), $request->description);
         $requestData = $request->all();
 
         if($request->hasFile('img')) {
@@ -56,11 +57,14 @@ class ProductResourceController extends Controller
         $product = Product::create($requestData);
 
         $imgs = $request->file('imgs');
+        $stringArray = '';
         foreach($imgs as $img){
             // 存檔並取得檔案在myfile內的路徑
             $path = Storage::disk('myfile')->putFile('productImg',$img);
             // 取得檔案在public的完整路徑
             $publicPath = Storage::disk('myfile')->url($path);
+            $imgTag = "<img src='$path' />";
+            $stringArray .= $imgTag;
             // 存到資料庫
             ProductImg::create([
                 'product_id'=>$product->id,

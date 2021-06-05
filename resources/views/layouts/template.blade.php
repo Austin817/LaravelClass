@@ -10,7 +10,7 @@
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
               integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
               crossorigin="anonymous" />
-
+       {!! htmlScriptTagJsApi() !!}
        <style>
               .collapse {
                      justify-content: flex-end;
@@ -215,7 +215,7 @@
                      background-color: #6366F1;
               }
               .mapForm{
-                     top: 100px;
+                     top: 20px;
                      right: 30px;
                      background-color: white;
                      padding: 30px;

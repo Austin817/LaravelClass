@@ -5,6 +5,10 @@
 
 @section ('css')
     <link rel="stylesheet" href="{{ asset('/css/products_list_page.css') }}">
+    
+    {{-- datatables --}}
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
+    {{-- datatables --}}
 @endsection
 
 
@@ -100,6 +104,14 @@
 
 
 @section ('js')
+    {{-- jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    {{-- jquery --}}
+
+    {{-- datatables --}}
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    {{-- datatables --}}
+
     <script>
         var btnDelete = document.querySelectorAll('.killBtn');
         btnDelete.forEach(function (btn) {

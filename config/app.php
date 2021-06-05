@@ -165,7 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-
         /*
          * Application Service Providers...
          */
@@ -174,6 +173,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // ReCaptcha 2021.06.03
+        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+        // ReCaptcha 2021.06.03
 
     ],
 
@@ -226,6 +229,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // ReCaptcha 2021.06.03
+        'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+        // ReCaptcha 2021.06.03
+
 
     ],
 
