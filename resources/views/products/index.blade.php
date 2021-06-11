@@ -21,11 +21,11 @@
       <div class="product-text">
         <h1>{{$Data->name}}</h1>
         <h2>by studio and friends</h2>
-        <p>{{$Data->description}}</p>
+        <div class="description">{!!$Data->description!!}</div>
       </div>
       <div class="product-price-btn d-flex flex-column mt-0 justify-content-between">
         <p>$<span>{{$Data->price}}</span></p>
-        <button type="button">buy now</button>
+        <button class="addshppingcart" data-id="{{$Data->id}}" type="button">buy now</button>
       </div>
     </div>
   </div>
@@ -40,4 +40,45 @@
 
 @section ('js')
 
+  <script>
+    document.querySelectorAll('.addshppingcart').forEach(function (addBtn) {
+      addBtn.addEventListener('click',function () {
+        console.log('123');
+        var productId = this.getAttribute('data-id');
+
+        var formData = new FormData();
+        formData.append('_token','{{ csrf_token() }}');
+        formData.append('productId',productId);
+
+        fetch('/shopping_cart/add',{
+          method:'POST',
+          body:formData
+        }).then(function (response) {
+          return response.text();
+        }).then(function (data) {
+          if(data == 'success'){
+            Swal.fire({
+              icon: 'success',
+              title: '成功加入購物車!',
+              showConfirmButton: false,
+              timer: 1700
+            })
+          }
+        })
+
+      });
+    })
+  </script>
+
+
+  @if (Session::get('icon'))
+    <script>
+        Swal.fire({
+          icon: '{{Session::get("icon")}}',
+          title: '{{Session::get("title")}}',
+          text: '{{Session::get("text")}}'
+        });
+    </script>
+  @endif
+  
 @endsection

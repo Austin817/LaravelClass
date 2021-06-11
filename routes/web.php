@@ -122,6 +122,24 @@ Route::prefix('/home/product')->group(function (){
 
 
 
+// ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart ShoppingCart //
+
+
+
+// 前端畫面
+// Shopping Cart Front Controller
+Route::prefix('/shopping_cart')->group(function (){
+    Route::post('/add', 'ShoppingCartFrontController@add');
+    Route::post('/update', 'ShoppingCartFrontController@update');
+    Route::get('/content', 'ShoppingCartFrontController@content');
+    Route::get('/list_1', 'ShoppingCartFrontController@list');
+    Route::get('/payment_2', 'ShoppingCartFrontController@payment');
+    
+});
+
+
+
+
 
 
 

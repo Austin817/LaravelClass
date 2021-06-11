@@ -178,6 +178,11 @@ return [
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
         // ReCaptcha 2021.06.03
 
+        // ShoppingCart
+        Darryldecode\Cart\CartServiceProvider::class
+        // ShoppingCart
+
+
     ],
 
     /*
@@ -233,6 +238,11 @@ return [
         // ReCaptcha 2021.06.03
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         // ReCaptcha 2021.06.03
+
+        // ShoppingCart
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
+        // ShoppingCart
+
 
 
     ],
