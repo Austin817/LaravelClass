@@ -77,143 +77,156 @@
             <div style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:94%;">
             </div>
 
-            <div class="row pl-5 pr-5 pt-3" style="width: 100%;">
-                <div class="row d-flex justify-content-center align-items-start flex-column" style="width: 100%;">
-                    <h4 class="text-left" style="font-weight: normal;">
-                        付款方式
-                    </h4>
-                </div>
-            </div>
 
-            <div class="container p-0 pt-3 pl-5 pr-5">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="payment" 
-                                value="credit" required>
-                            <label class="form-check-label" for="payment">
-                                信用卡付款
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" 
-                                value="atm" required>
-                            <label class="form-check-label" for="payment">
-                                網路 ATM
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" 
-                                value="cds" required>
-                            <label class="form-check-label" for="payment">
-                                超商代碼
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 40px;width:100%;">
+            <form action="/shopping_cart/payment_2/check" method="POST" style="width: 100%;" class="">
+                @csrf
+                <div class="row pl-5 pr-5 pt-3" style="width: 100%;">
+                    <div class="row d-flex justify-content-center align-items-start flex-column" style="width: 100%;">
+                        <h4 class="text-left" style="font-weight: normal;">
+                            付款方式
+                        </h4>
                     </div>
                 </div>
 
-            </div>
-
-            <div class="row pl-5 pr-5 pt-3" style="width: 100%;">
-                <div class="row d-flex justify-content-center align-items-start flex-column" style="width: 100%;">
-                    <h4 class="text-left" style="font-weight: normal;">運送方式</h4>
-                </div>
-            </div>
-
-            <div class="container p-0 pt-3 pl-5 pr-5">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios2" 
-                                value="home" required>
-                            <label class="form-check-label" for="payment">
-                                黑貓宅配
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios2" 
-                                value="store" required>
-                            <label class="form-check-label" for="payment">
-                                超商店到店
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
-                    </div>
-                </div>
-
-            </div>
-            <div class="container p-0 pt-3 pl-5 pr-5">
-                <div class="container p-0 m-0">
-
-                    <div class="row p-0">
-                        <div class="col-xl-9 col-lg-8 col-5"></div>
-                        <div class="col-xl-1 col-lg-2 col-3">數量:</div>
-                        <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{\Cart::getTotalQuantity()}}</div>
-                    </div>
-                    @php
-                        $SubTotal = \Cart::getSubTotal();
-                        $shipment = \Cart::getSubTotal() > 1000 ? 0 : 60 ; 
-                    @endphp
-                    <div class="row p-0">
-                        <div class="col-xl-9 col-lg-8 col-5"></div>
-                        <div class="col-xl-1 col-lg-2 col-3">小計:</div>
-                        <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal)}}</div>
-                    </div>
-                    <div class="row p-0">
-                        <div class="col-xl-9 col-lg-8 col-5"></div>
-                        <div class="col-xl-1 col-lg-2 col-3">運費:</div>
-                        <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{$shipment}}</div>
-                    </div>
-                    <div class="row p-0">
-                        <div class="col-xl-9 col-lg-8 col-5"></div>
-                        <div class="col-xl-1 col-lg-2 col-3">總計:</div>
-                        <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal + $shipment)}}</div>
-                    </div>
-
-                    <div
-                        style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width: 100%;">
-                    </div>
-                </div>
-
+                @php
+                    $payment = Session::get('payment');
+                @endphp
 
                 <div class="container p-0 pt-3 pl-5 pr-5">
-
-                    <div class="container d-flex justify-content-between" style="padding: 0;">
-                        <a href="./cart.vol.01.html"><button type="button" class="btn btn-primary btn-lg pbr-color"
-                                style="padding: 6px 30px;">Back</button></a>
-                        <a href="./cart.vol.03.html"><button type="button" class="btn btn-primary btn-lg pb-color"
-                                style="padding: 6px 30px;">Next</button></a>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex align-items-center">
+                            <div class="form-check">
+                                <input id="radio-credit" class="form-check-input" type="radio" name="payment" 
+                                    value="credit" @if ($payment == "credit") checked @endif required>
+                                <label class="form-check-label" for="radio-credit">
+                                    信用卡付款
+                                </label>
+                            </div>
+                        </div>
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex align-items-center">
+                            <div class="form-check">
+                                <input id="radio-atm" class="form-check-input" type="radio" name="payment" 
+                                    value="atm" @if ($payment == "atm") checked @endif required>
+                                <label class="form-check-label" for="radio-atm">
+                                    網路 ATM
+                                </label>
+                            </div>
+                        </div>
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex align-items-center">
+                            <div class="form-check">
+                                <input id="radio-cvs" class="form-check-input" type="radio" name="payment" 
+                                    value="cvs" @if ($payment == "cvs") checked @endif required>
+                                <label class="form-check-label" for="radio-cvs">
+                                    超商代碼
+                                </label>
+                            </div>
+                        </div>
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 40px;width:100%;">
+                        </div>
                     </div>
 
                 </div>
 
-            </div>
+                <div class="row pl-5 pr-5 pt-3" style="width: 100%;">
+                    <div class="row d-flex justify-content-center align-items-start flex-column" style="width: 100%;">
+                        <h4 class="text-left" style="font-weight: normal;">運送方式</h4>
+                    </div>
+                </div>
+
+                @php
+                    $shipment = Session::get('shipment');
+                @endphp
+
+                <div class="container p-0 pt-3 pl-5 pr-5">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex align-items-center">
+                            <div class="form-check">
+                                <input id="radio-home" class="form-check-input" type="radio" name="shipment" 
+                                    value="home" @if ($shipment == "home") checked @endif required>
+                                <label class="form-check-label" for="radio-home">
+                                    黑貓宅配
+                                </label>
+                            </div>
+                        </div>
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex align-items-center">
+                            <div class="form-check">
+                                <input id="radio-store" class="form-check-input" type="radio" name="shipment" 
+                                    value="store" @if ($shipment == "store") checked @endif required>
+                                <label class="form-check-label" for="radio-store">
+                                    超商店到店
+                                </label>
+                            </div>
+                        </div>
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width:96%;">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container p-0 pt-3 pl-5 pr-5">
+                    <div class="container p-0 m-0">
+
+                        <div class="row p-0">
+                            <div class="col-xl-9 col-lg-8 col-5"></div>
+                            <div class="col-xl-1 col-lg-2 col-3">數量:</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{\Cart::getTotalQuantity()}}</div>
+                        </div>
+                        @php
+                            $SubTotal = \Cart::getSubTotal();
+                            $shipment = \Cart::getSubTotal() > 1000000 ? 0 : 600 ; 
+                        @endphp
+                        <div class="row p-0">
+                            <div class="col-xl-9 col-lg-8 col-5"></div>
+                            <div class="col-xl-1 col-lg-2 col-3">小計:</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal)}}</div>
+                        </div>
+                        <div class="row p-0">
+                            <div class="col-xl-9 col-lg-8 col-5"></div>
+                            <div class="col-xl-1 col-lg-2 col-3">運費:</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{$shipment}}</div>
+                        </div>
+                        <div class="row p-0">
+                            <div class="col-xl-9 col-lg-8 col-5"></div>
+                            <div class="col-xl-1 col-lg-2 col-3">總計:</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal + $shipment)}}</div>
+                        </div>
+
+                        <div
+                            style="border-top: 1px solid rgb(230, 230, 230);margin-top: 20px;margin-bottom: 20px;width: 100%;">
+                        </div>
+                    </div>
+
+
+                    <div class="container p-0 pt-3 pl-5 pr-5">
+
+                        <div class="container d-flex justify-content-between" style="padding: 0;">
+                            <a href="/shopping_cart/list_1"><button type="button" class="btn btn-primary btn-lg pbr-color"
+                                    style="padding: 6px 30px;">Back</button></a>
+                            <button type="submit" class="btn btn-primary btn-lg pb-color"
+                                    style="padding: 6px 30px;">Next</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
 
         </div>
 

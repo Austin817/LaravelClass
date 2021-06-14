@@ -87,24 +87,24 @@
 
             <div class="container p-0 pt-3 pl-5 pr-5">
 
-                @foreach ($cartCollection as $item)
+                @foreach ($cartCollection as $product)
 
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="col-8 d-flex align-items-center">
-                            <button id="delBtn">X</button>
-                            <img src="{{asset($item->attributes->img)}}" class="card-img-top ml-4 mr-3" alt=""
+                            <button class="delBtn" data-id="{{$product->id}}">X</button>
+                            <img src="{{asset($product->attributes->img)}}" class="card-img-top ml-4 mr-3" alt=""
                                 style="width: 60px; height:60px; background-color: #E0E7FF;border-radius: 50%;padding: 20px;">
                             <div class="text-left d-flex justify-content-start align-items-start flex-column">
-                                <h4 class="mt-2 ">{{$item->name}}</h4>
+                                <h4 class="mt-2 ">{{$product->name}}</h4>
                                 <p class="my-0">#微辣</p>
                             </div>
                         </div>
 
                         <div class="col-4 d-flex justify-content-end align-items-center">
                             <button class="minus" style="border: 0;background-color: transparent;padding: 3px;">-</button>
-                            <input class="qty" data-id="{{$item->id}}" type="number" style="max-width: 40px;" class="m-2" value="{{$item->quantity}}">
+                            <input class="qty" data-id="{{$product->id}}" type="number" style="max-width: 40px;" class="m-2" value="{{$product->quantity}}">
                             <button class="plus" style="border: 0;background-color: transparent;padding: 3px;">+</button>
-                            <p class="money m-0 pl-3" data-price="{{$item->price}}">{{$item->price * $item->quantity}}</p>
+                            <p class="money m-0 pl-3" data-price="{{$product->price}}">{{$product->price * $product->quantity}}</p>
                         </div>
 
                         <div
@@ -176,6 +176,7 @@
         var minusBtns = document.querySelectorAll('.minus');
         var plusBtns = document.querySelectorAll('.plus');
         var qtyInputs = document.querySelectorAll('.qty');
+        var deleteBtns = document.querySelectorAll('.delBtn');
 
 
         qtyInputs.forEach(function (qtyInput) {
@@ -192,7 +193,7 @@
                 // 取得當前元素前面的元素，在此處也就是取得input
                 
                 var input = this.previousElementSibling;
-                var qty = 1;
+                var qty = Number(input.value) + 1;
 
                 shoppingCartUpdate(this,input,qty);
 
@@ -204,11 +205,32 @@
                 // this.nextElementSibling
                 // 取得當前元素後面的元素，在此處也就是取得input
                 var input = this.nextElementSibling;
-                if(input.value > 1){
-                    var qty = -1;
-                    shoppingCartUpdate(this,input,qty);
-                }
+                
+                var qty = Number(input.value) <= 1 ? 1 : Number(input.value) - 1;
+                
+                shoppingCartUpdate(this,input,qty);
 
+            });
+        });
+
+        deleteBtns.forEach(function (deleteBtn) {
+            deleteBtn.addEventListener('click',function () {
+                var formData = new FormData();
+                deleteBtnElement = this;
+                formData.append('_token','{{ csrf_token() }}');
+                formData.append('productId',this.getAttribute('data-id'));
+                fetch('/shopping_cart/delete',{
+                    'method':'POST',
+                    'body': formData
+                }).then(function (response) {
+                    return response.text();
+                }).then(function (data) {
+                    if(data == 'success'){
+                        var productArea = deleteBtnElement.parentElement.parentElement;
+                        productArea.remove();
+                        ShoppingCartCalc();
+                    }
+                });
             });
         });
 
@@ -248,7 +270,7 @@
         function ShoppingCartCalc() {
             var totalQty = 0;
             var subPrice = 0;
-            var shipmentPrice = 60;
+            var shipmentPrice = 600;
             var totalPrice = 0;
 
             var qtyInputs = document.querySelectorAll('.qty');
@@ -262,7 +284,7 @@
             document.querySelector('#total-qty').innerText = totalQty.toLocaleString();
             document.querySelector('#sub-price').innerText = subPrice.toLocaleString();
 
-            if(subPrice > 1000){
+            if(subPrice > 1000000){
                 shipmentPrice = 0;
             }
 

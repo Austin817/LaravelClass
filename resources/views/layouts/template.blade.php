@@ -284,7 +284,7 @@
                      </div>
                      <div class="sub-bar d-flex">
                             <div class="m-1 sub-bar-area d-flex justify-content-center align-items-center">
-                                   <img class="sub-bar-img" src="{{ asset('./IMG/e7bf.png') }}" alt="">
+                                   <a href="/shopping_cart/list_1"><img class="sub-bar-img" src="{{ asset('./IMG/e7bf.png') }}" alt=""></a>
                             </div>
                             <div class="m-1 sub-bar-area d-flex justify-content-center align-items-center">
                                    <img class="sub-bar-img" src="{{ asset('./IMG/e77b.png') }}" alt="">
@@ -438,6 +438,17 @@
 
 
        <script src="{{ asset('js/app.js') }}"></script>
+
+       @if (Session::get('icon'))
+              <script>
+                     Swal.fire({
+                            icon: '{{Session::get("icon")}}',
+                            title: '{{Session::get("title")}}',
+                            text: '{{Session::get("text")}}',
+                            timer: 1500
+                     });
+              </script>
+       @endif
 
        @yield('js')
 

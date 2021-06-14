@@ -94,6 +94,17 @@
     
     <script src="{{ asset('js/app.js') }}"></script>
 
+    @if (Session::get('icon'))
+        <script>
+            Swal.fire({
+                icon: '{{Session::get("icon")}}',
+                title: '{{Session::get("title")}}',
+                text: '{{Session::get("text")}}',
+                timer: 1500
+            });
+        </script>
+    @endif 
+    
     @yield('js')
 
 </body>

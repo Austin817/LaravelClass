@@ -26,6 +26,13 @@ class ProductToolBoxController extends Controller
 
 
 
+    static function swal($icon,$title,$text)
+    {
+        return  ['icon'=>$icon,'title'=>$title,'text'=>$text];
+    }
+
+
+
     private function fileUpload($file,$dir){
         //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
         if( ! is_dir('upload/')){

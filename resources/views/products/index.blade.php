@@ -43,7 +43,6 @@
   <script>
     document.querySelectorAll('.addshppingcart').forEach(function (addBtn) {
       addBtn.addEventListener('click',function () {
-        console.log('123');
         var productId = this.getAttribute('data-id');
 
         var formData = new FormData();
@@ -61,24 +60,13 @@
               icon: 'success',
               title: '成功加入購物車!',
               showConfirmButton: false,
-              timer: 1700
+              timer: 1000
             })
           }
-        })
-
+        });
       });
     })
   </script>
 
 
-  @if (Session::get('icon'))
-    <script>
-        Swal.fire({
-          icon: '{{Session::get("icon")}}',
-          title: '{{Session::get("title")}}',
-          text: '{{Session::get("text")}}'
-        });
-    </script>
-  @endif
-  
 @endsection

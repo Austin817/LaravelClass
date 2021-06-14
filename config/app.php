@@ -179,9 +179,12 @@ return [
         // ReCaptcha 2021.06.03
 
         // ShoppingCart
-        Darryldecode\Cart\CartServiceProvider::class
+        Darryldecode\Cart\CartServiceProvider::class,
         // ShoppingCart
 
+        // Krlove
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
+        // Krlove
 
     ],
 

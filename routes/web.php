@@ -130,10 +130,17 @@ Route::prefix('/home/product')->group(function (){
 // Shopping Cart Front Controller
 Route::prefix('/shopping_cart')->group(function (){
     Route::post('/add', 'ShoppingCartFrontController@add');
-    Route::post('/update', 'ShoppingCartFrontController@update');
-    Route::get('/content', 'ShoppingCartFrontController@content');
-    Route::get('/list_1', 'ShoppingCartFrontController@list');
-    Route::get('/payment_2', 'ShoppingCartFrontController@payment');
+
+    // 登入需求
+    Route::middleware('auth','cartCheck')->group(function(){
+        Route::post('/update', 'ShoppingCartFrontController@update');
+        Route::post('/delete', 'ShoppingCartFrontController@delete');
+        Route::get('/content', 'ShoppingCartFrontController@content');
+        Route::get('/list_1', 'ShoppingCartFrontController@list');
+        Route::get('/payment_2', 'ShoppingCartFrontController@payment');
+        Route::post('/payment_2/check', 'ShoppingCartFrontController@paymentCheck');
+        Route::post('/information_3/check', 'ShoppingCartFrontController@informationCheck');
+    });
     
 });
 
@@ -198,6 +205,20 @@ Route::get('/lesson1',function(){
 
     return 'hello world!';
 });
+
+
+// ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay ECPay //
+
+// 綠界金流
+
+Route::prefix('cart_ecpay')->group(function(){
+    //當消費者付款完成後，綠界會將付款結果參數以幕後(Server POST)回傳到該網址。
+    Route::post('notify', 'ShoppingCartFrontController@notifyUrl')->name('notify');
+
+    //付款完成後，綠界會將付款結果參數以幕前(Client POST)回傳到該網址
+    Route::post('return', 'ShoppingCartFrontController@returnUrl')->name('return');
+});
+
 
 Auth::routes();
 
