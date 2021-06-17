@@ -184,7 +184,6 @@
         });
 
 
-        ShoppingCartCalc();
         
 
         plusBtns.forEach(function (plusBtn) {

@@ -188,13 +188,15 @@
                             <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{\Cart::getTotalQuantity()}}</div>
                         </div>
                         @php
-                            $SubTotal = \Cart::getSubTotal();
-                            $shipment = \Cart::getSubTotal() > 1000000 ? 0 : 600 ; 
+                            $subTotal = \Cart::getSubTotal();
+                            $shipment = \Cart::getSubTotal() > 1000000 ? 0 : 600 ;
+                            dd($subTotal,$shipment);
+
                         @endphp
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
                             <div class="col-xl-1 col-lg-2 col-3">小計:</div>
-                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal)}}</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($subTotal)}}</div>
                         </div>
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
@@ -204,7 +206,7 @@
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
                             <div class="col-xl-1 col-lg-2 col-3">總計:</div>
-                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($SubTotal + $shipment)}}</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($subTotal + $shipment)}}</div>
                         </div>
 
                         <div
