@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form>div{
+    width: 100%;
+}
+form>div>input{
+    width: 100%;
+}
+form>div>textarea{
+    width: 100%;
+}
+.img-delete-btn-area{
+    position: relative;
+}
+.img-delete-btn{
+    background-color: red;
+    display: flex;
+    color: white;
+    justify-content:center; 
+    align-items:center; 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    z-index: 99;
+}
