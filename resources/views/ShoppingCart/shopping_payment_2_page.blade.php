@@ -188,10 +188,9 @@
                             <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{\Cart::getTotalQuantity()}}</div>
                         </div>
                         @php
-                            $subTotal = \Cart::getSubTotal();
+                            $stringSubTotal = \Cart::getSubTotal();
                             $shipment = \Cart::getSubTotal() > 1000000 ? 0 : 600 ;
-                            dd($subTotal,$shipment);
-
+                            $subTotal=intval($stringSubTotal);
                         @endphp
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
@@ -201,7 +200,7 @@
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
                             <div class="col-xl-1 col-lg-2 col-3">運費:</div>
-                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{$shipment}}</div>
+                            <div class="col-xl-2 col-lg-2 col-4 text-right p-0">{{number_format($shipment)}}</div>
                         </div>
                         <div class="row p-0">
                             <div class="col-xl-9 col-lg-8 col-5"></div>
